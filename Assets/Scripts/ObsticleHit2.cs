@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObsticleHit1 : MonoBehaviour
+public class ObsticleHit2 : MonoBehaviour
 {
-    public float slowFactor;
     public float duration;
     public playerScript getPlayer;
 
@@ -12,16 +11,14 @@ public class ObsticleHit1 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            StartCoroutine(SlowPlayer());
+            StartCoroutine(StopPlayer());
         }
     }
-    IEnumerator SlowPlayer()
+    IEnumerator StopPlayer()
     {
-        getPlayer.moveSpeed /= slowFactor;
+        getPlayer.moveSpeed = 0;
         yield return new WaitForSeconds(duration);
         getPlayer.moveSpeed = getPlayer.moveSpeedDefault;
         Destroy(this.gameObject);
     }
-
-
 }

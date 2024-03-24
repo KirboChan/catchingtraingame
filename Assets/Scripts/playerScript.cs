@@ -6,6 +6,7 @@ public class playerScript : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] public float moveSpeed;
+    public float moveSpeedDefault = 5f;
     [SerializeField] int jumpPower;
     [SerializeField] float jumpTime;
      float jumpCounter;
@@ -16,8 +17,6 @@ public class playerScript : MonoBehaviour
     public LayerMask groundLayer;
     
     Vector2 vecGravity;
-    [SerializeField] private float slowFactor;
-    [SerializeField] private float duration;
 
     // Start is called before the first frame update
     void Start()
@@ -82,19 +81,5 @@ public class playerScript : MonoBehaviour
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Obsticle1"))
-        {
-
-            float speedReduction = 20f; // define your own speed reduction
-            moveSpeed = Mathf.Max(moveSpeed - speedReduction, 0f);
-        }
-    }
-    IEnumerator SlowPlayer()
-    {
-        moveSpeed *= slowFactor;
-        yield return new WaitForSeconds(duration);
-        moveSpeed /= slowFactor;
-    }
+  
 }
