@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class playerScript : MonoBehaviour
     [SerializeField] bool isJumping;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    bool isSliding;
+    Animator anim;
     
     Vector2 vecGravity;
 
@@ -23,6 +26,7 @@ public class playerScript : MonoBehaviour
     {
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();    
     }
 
     // Update is called once per frame
@@ -30,7 +34,10 @@ public class playerScript : MonoBehaviour
     {
         Moving();
         Jumping();
+        Sliding();
     }
+
+  
 
     bool isGrounded()
     {
@@ -81,5 +88,19 @@ public class playerScript : MonoBehaviour
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
         }
     }
-  
+
+    private void Sliding()
+    {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            isSliding = true;
+            anim.SetBool("Slide", true); ;
+        }
+        else
+        {
+            isSliding = false;
+            anim.SetBool("Slide", false);
+        }
+    }
+
 }
