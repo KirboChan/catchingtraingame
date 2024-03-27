@@ -11,11 +11,21 @@ public class cameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
-
+    private void Start()
+    {
+        Follow();
+    }
     private void Update()
     {
-        Vector3 targetPosition = target.position + offset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);  
+        Follow();
     }
 
+    void Follow()
+    {
+        Vector3 targetPosition = target.position + offset;
+        Vector3 boundPosition = new Vector3(Mathf.Clamp(targetPosition.x, minValue.x, maxValue.x), Mathf.Clamp(targetPosition.y, minValue.y, maxValue.y), Mathf.Clamp(targetPosition.z, minValue.z, maxValue.z));
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, boundPosition, smoothTime * Time.fixedDeltaTime);
+
+        transform.position = smoothPosition;
+    }
 }
