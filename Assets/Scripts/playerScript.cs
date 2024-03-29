@@ -54,6 +54,7 @@ public class playerScript : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             isJumping = true;
+            anim.SetBool("Jump", true);
             jumpCounter = 0;
         }
 
@@ -70,13 +71,14 @@ public class playerScript : MonoBehaviour
                 currentJumpM = jumpMultiplier * (1 - t);
             }
             rb.velocity += vecGravity * jumpMultiplier * Time.deltaTime;
+
         }
 
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
             jumpCounter = 0;
-
+            anim.SetBool("Jump", false);
             if (rb.velocity.y > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
@@ -87,6 +89,7 @@ public class playerScript : MonoBehaviour
         {
             rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
         }
+        anim.SetFloat("yVelocity", rb.velocity.y);
     }
 
     private void Sliding()

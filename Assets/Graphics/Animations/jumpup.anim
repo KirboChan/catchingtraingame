@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: slide
+  m_Name: jumpup
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 92a11566fd32ac141bf7b37280d7f264, type: 3}
+      value: {fileID: 21300000, guid: 883ea1356a7f2b94f9fd3b1da344fa9b, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 3ecf7180c5af35d48ac126d8322cfc89, type: 3}
+      value: {fileID: 21300000, guid: 66b475001c777dc4a8d46be1881861b6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 92a11566fd32ac141bf7b37280d7f264, type: 3}
-    - {fileID: 21300000, guid: 3ecf7180c5af35d48ac126d8322cfc89, type: 3}
+    - {fileID: 21300000, guid: 883ea1356a7f2b94f9fd3b1da344fa9b, type: 3}
+    - {fileID: 21300000, guid: 66b475001c777dc4a8d46be1881861b6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
