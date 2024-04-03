@@ -39,7 +39,10 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: CityBackground
+    uniqueID: 1015339641
+    locked: 0
+  - name: HouseBackground
     uniqueID: 369811577
     locked: 0
   - name: Default

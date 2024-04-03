@@ -17,7 +17,7 @@ public class playerScript : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     [SerializeField] bool isSliding;
-    Animator anim;
+    public Animator anim;
     
     Vector2 vecGravity;
 

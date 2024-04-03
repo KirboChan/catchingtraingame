@@ -20,7 +20,6 @@ public class ObsticleHit1 : MonoBehaviour
         getPlayer.moveSpeed /= slowFactor;
         yield return new WaitForSeconds(duration);
         getPlayer.moveSpeed = getPlayer.moveSpeedDefault;
-        Destroy(this.gameObject);
     }
 
 
