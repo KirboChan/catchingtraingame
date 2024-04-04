@@ -10,6 +10,10 @@ public class playerHealth : MonoBehaviour
     public Sprite fullCoffee;
     public Sprite emptyCoffee;
 
+    private void Start()
+    {
+        health = 3;
+    }
     private void Update()
     {
         foreach(Image img in coffee)

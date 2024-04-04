@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {
+    public static bool playerAlive;
     Rigidbody2D rb;
     [SerializeField] public float moveSpeed;
     public float moveSpeedDefault = 5f;
@@ -24,6 +25,8 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        playerAlive = true;
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();    
@@ -94,7 +97,7 @@ public class playerScript : MonoBehaviour
 
     private void Sliding()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetButton("Slide"))
         {
             isSliding = true;
             anim.SetBool("Slide", true); ;

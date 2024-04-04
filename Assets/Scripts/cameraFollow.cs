@@ -11,10 +11,6 @@ public class cameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
-    private void Start()
-    {
-        Follow();
-    }
     private void Update()
     {
         Follow();
