@@ -9,13 +9,20 @@ public class UIScript : MonoBehaviour
 {
     public Button resetButton;
     public Button menuButton;
-
+    public GameObject endScreens;
     private void Update()
     {
-        if (playerScript.playerAlive)
+        if (playerScript.playerAlive && playerScript.gameActive == true)
         {
             resetButton.gameObject.SetActive(false);
             menuButton.gameObject.SetActive(false);
+            endScreens.gameObject.SetActive(false);
+        }
+        else if (playerScript.playerAlive && playerScript.gameActive == false)
+        {
+            resetButton.gameObject.SetActive(true);
+            menuButton.gameObject.SetActive(true);
+            endScreens.gameObject.SetActive(true);
         }
         else
         {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     public static bool playerAlive;
+    public static bool gameActive;
     Rigidbody2D rb;
     [SerializeField] public float moveSpeed;
     public float moveSpeedDefault = 5f;
@@ -17,7 +18,6 @@ public class playerScript : MonoBehaviour
     [SerializeField] bool isJumping;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    [SerializeField] bool isSliding;
     public Animator anim;
     
     Vector2 vecGravity;
@@ -25,8 +25,8 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         playerAlive = true;
+        gameActive = true;
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();    
@@ -38,6 +38,7 @@ public class playerScript : MonoBehaviour
         Moving();
         Jumping();
         Sliding();
+        winCondition();
     }
 
   
@@ -99,14 +100,25 @@ public class playerScript : MonoBehaviour
     {
         if (Input.GetButton("Slide"))
         {
-            isSliding = true;
             anim.SetBool("Slide", true); ;
         }
         else
         {
-            isSliding = false;
             anim.SetBool("Slide", false);
         }
     }
 
+    private void winCondition()
+    {
+        if (gameActive == false)
+        {
+            moveSpeed -= 0.1f;
+            if (moveSpeed < 0) 
+            { 
+                moveSpeed = 0;
+                anim.SetBool("gameOver", true);
+            }
+        }
+
+    }
 }
