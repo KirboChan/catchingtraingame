@@ -21,7 +21,7 @@ public class ObsticleHit2 : MonoBehaviour
         }
     }
     IEnumerator StopPlayer()
-    { 
+    {
         if (playerHealth.health <= 0)
         {
             Destroy(getPlayer.gameObject);
@@ -29,10 +29,15 @@ public class ObsticleHit2 : MonoBehaviour
         }
         else
         {
-            getPlayer.moveSpeed = 0;
-            playerHealth.health--;
-            getPlayer.anim.SetBool("isHit", true);
-            cameraShake.instance.Shake(0.35f, 0.1f);
+            if (playerHealth.isInvisible == false )
+            {
+                StartCoroutine(playerHealth.instance.InvincibilityFrames());
+                getPlayer.moveSpeed = 0;
+                playerHealth.health--;
+                getPlayer.anim.SetBool("isHit", true);
+                cameraShake.instance.Shake(0.35f, 0.1f);
+            }
+           
         }
         yield return new WaitForSeconds(duration);
         getPlayer.anim.SetBool("isHit", false);

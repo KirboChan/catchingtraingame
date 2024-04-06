@@ -1357,6 +1357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c7b0f15d40db44baa9425bc6c31d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashes: 3
+  invincibilityFrames: 0.78
   coffee:
   - {fileID: 1491607625}
   - {fileID: 1968297077}

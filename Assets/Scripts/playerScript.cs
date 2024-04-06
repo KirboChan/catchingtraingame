@@ -35,10 +35,17 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Moving();
-        Jumping();
-        Sliding();
-        winCondition();
+        if (gameActive)
+        {
+            Moving();
+            Jumping();
+            Sliding();
+        }
+        else
+        {
+            Moving();
+            winCondition();
+        }
     }
 
   
