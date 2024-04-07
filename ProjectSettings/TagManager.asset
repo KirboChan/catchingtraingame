@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obsticle1
+  - Bus
+  - Audio
   layers:
   - Default
   - TransparentFX

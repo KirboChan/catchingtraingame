@@ -6,11 +6,13 @@ public class ObsticleHit2 : MonoBehaviour
 {
     public float duration;
     public playerScript getPlayer;
+    private audioManager thisAudioManager;
     cameraFollow thiscamera;
 
-    private void Start()
+    private void Awake()
     {
-        thiscamera = GameObject.FindWithTag("MainCamera").GetComponent<cameraFollow>(); 
+        thisAudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+        thiscamera = GameObject.FindWithTag("MainCamera").GetComponent<cameraFollow>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -32,6 +34,7 @@ public class ObsticleHit2 : MonoBehaviour
             if (playerHealth.isInvisible == false )
             {
                 StartCoroutine(playerHealth.instance.InvincibilityFrames());
+                thisAudioManager.PlaySFX(thisAudioManager.charHit);
                 getPlayer.moveSpeed = 0;
                 playerHealth.health--;
                 getPlayer.anim.SetBool("isHit", true);

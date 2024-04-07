@@ -9,6 +9,8 @@ public class UIScript : MonoBehaviour
     public Button resetButton;
     public Button menuButton;
     public GameObject endScreens;
+
+   
     private void Update()
     {
         if (playerScript.playerAlive && playerScript.gameActive == true)
@@ -34,7 +36,6 @@ public class UIScript : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
-
     public void QuitGame()
     {
         Application.Quit();

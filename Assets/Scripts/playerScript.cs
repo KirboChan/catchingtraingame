@@ -21,6 +21,12 @@ public class playerScript : MonoBehaviour
     public Animator anim;
     
     Vector2 vecGravity;
+    private audioManager thisAudioManager;
+
+    private void Awake()
+    {
+        thisAudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +93,7 @@ public class playerScript : MonoBehaviour
 
         if (Input.GetButtonUp("Jump"))
         {
+            thisAudioManager.PlaySFX(thisAudioManager.jump);
             isJumping = false;
             jumpCounter = 0;
             anim.SetBool("Jump", false);
@@ -105,9 +112,12 @@ public class playerScript : MonoBehaviour
 
     private void Sliding()
     {
-        if (Input.GetButton("Slide"))
+        if (Input.GetButton("Slide") && isGrounded())
         {
-            anim.SetBool("Slide", true); ;
+           
+            anim.SetBool("Slide", true);
+            if (!thisAudioManager.sfxSource.isPlaying) 
+            thisAudioManager.PlaySFX(thisAudioManager.slide);
         }
         else
         {
