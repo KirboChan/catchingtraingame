@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour
 {
-    public Button resetButton;
-    public Button menuButton;
+    public GameObject gameMenu;
+    public Image thisEndCard;
     public GameObject endScreens;
 
    
@@ -15,29 +15,24 @@ public class UIScript : MonoBehaviour
     {
         if (playerScript.playerAlive && playerScript.gameActive == true)
         {
-            resetButton.gameObject.SetActive(false);
-            menuButton.gameObject.SetActive(false);
+            gameMenu.SetActive(false);
             endScreens.gameObject.SetActive(false);
+            thisEndCard.gameObject.SetActive(false);
         }
         else if (playerScript.playerAlive && playerScript.gameActive == false)
         {
-            resetButton.gameObject.SetActive(true);
-            menuButton.gameObject.SetActive(true);
+            gameMenu.SetActive(true);
             endScreens.gameObject.SetActive(true);
         }
         else
         {
-            resetButton.gameObject.SetActive(true);
-            menuButton.gameObject.SetActive(true);
+            gameMenu.SetActive(true);
+            thisEndCard.gameObject.SetActive(true);
         }
     }
 
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }
