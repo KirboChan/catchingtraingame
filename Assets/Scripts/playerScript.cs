@@ -125,7 +125,7 @@ public class playerScript : MonoBehaviour
         }
     }
 
-    private void winCondition()
+    public void winCondition()
     {
         if (gameActive == false)
         {

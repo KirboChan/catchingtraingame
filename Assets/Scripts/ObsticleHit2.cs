@@ -31,9 +31,8 @@ public class ObsticleHit2 : MonoBehaviour
         }
         else
         {
-            if (playerHealth.isInvisible == false )
+            if (!playerHealth.isInvisible)
             {
-                StartCoroutine(playerHealth.instance.InvincibilityFrames());
                 thisAudioManager.PlaySFX(thisAudioManager.charHit);
                 getPlayer.moveSpeed = 0;
                 playerHealth.health--;

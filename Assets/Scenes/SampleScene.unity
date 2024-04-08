@@ -26774,6 +26774,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1239734217762642910, guid: f869d008bfba35c47b8618f31b282696, type: 3}
+      propertyPath: flashes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239734217762642910, guid: f869d008bfba35c47b8618f31b282696, type: 3}
+      propertyPath: isInvisible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239734217762642910, guid: f869d008bfba35c47b8618f31b282696, type: 3}
+      propertyPath: invincibilityFrames
+      value: 1.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239734217762642910, guid: f869d008bfba35c47b8618f31b282696, type: 3}
       propertyPath: coffee.Array.data[0]
       value: 
       objectReference: {fileID: 1491607625}
@@ -26785,6 +26797,18 @@ PrefabInstance:
       propertyPath: coffee.Array.data[2]
       value: 
       objectReference: {fileID: 1504728162}
+    - target: {fileID: 2308058979879706059, guid: f869d008bfba35c47b8618f31b282696, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308058979879706059, guid: f869d008bfba35c47b8618f31b282696, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308058979879706059, guid: f869d008bfba35c47b8618f31b282696, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1269290261
+      objectReference: {fileID: 0}
     - target: {fileID: 6270447692318960244, guid: f869d008bfba35c47b8618f31b282696, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
